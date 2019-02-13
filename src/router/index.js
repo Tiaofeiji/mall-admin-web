@@ -41,8 +41,8 @@ export const constantRouterMap = [
     children: [{
       path: 'test',
       name: 'test',
-      component: () => import('@/views/pms/product/test'),
-      meta: {title: '商品列表test',icon:'example'}
+      component: () => import('@/views/pms/product/test1'),
+      meta: {title: '组件通信',icon:'example'}
     },{
       path: 'product',
       name: 'product',
