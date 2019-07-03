@@ -4,6 +4,7 @@
     <h1>父组件：{{content2}}</h1>
     <el-button @click="toChild">父组件传参子组件</el-button>
     <child-comp :content1="content1" @getParamFromChild="getFromChild"></child-comp>
+    <child-comp :content1="content2"></child-comp>
   </div>
 </template>
 
@@ -15,7 +16,7 @@
     data() {
       return {
         content1: "",
-        content2: ""
+        content2: "222"
       }
     },
     created() {
@@ -26,9 +27,10 @@
     },
     methods: {
       toChild() {
-        this.content1 = "父组件的参数"
+        this.content1 = {a: 2, c: 3},
+        this.content2 = 3333
       },
-      getFromChild(param){
+      getFromChild(param) {
         this.content2 = param.title
       }
     },
@@ -36,17 +38,17 @@
       "child-comp":
         {
           props: ['content1'],
-          methods:{
-            toFather(){
-              this.$emit("getParamFromChild",this.content2)
+          methods: {
+            toFather() {
+              this.$emit("getParamFromChild", this.content2)
             }
           },
-          data(){
+          data() {
             return {
-              content2:{
-                title:"子组件多参数",
-                pageNum:1,
-                pageSize:5
+              content2: {
+                title: "子组件多参数",
+                pageNum: 1,
+                pageSize: 5
               }
             }
           },
