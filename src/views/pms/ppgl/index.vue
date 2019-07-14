@@ -42,6 +42,14 @@
           prop="firstLetter"
           label="品牌首字母">
         </el-table-column>
+        <el-table-column label="操作" width="200" align="center">
+          <template slot-scope="scope">
+            <el-button size="mini" @click="handleUpdate(scope.$index, scope.row)">编辑
+            </el-button>
+            <el-button size="mini" type="danger">删除
+            </el-button>
+          </template>
+        </el-table-column>
       </el-table>
     </div>
     <div class="pagination-container">
@@ -74,6 +82,9 @@
         total: null,
       }
     },
+    created() {
+      this.searchPpglList();
+    },
     methods: {
       getList() {
         fetchList(this.listQuery).then(response => {
@@ -97,6 +108,9 @@
         this.listQuery.pageNum = val;
         this.getList();
       },
+      handleUpdate:function(index, row){
+        this.$router.push({path: '/pms/updatePpgl', query: {id: row.id}})
+      }
     }
   }
 </script>

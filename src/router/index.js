@@ -48,11 +48,6 @@ export const constantRouterMap = [
       name: 'product',
       component: () => import('@/views/pms/product/index'),
       meta: {title: '商品列表', icon: 'product-list'}
-    },{
-      path: 'ppgl',
-      name: 'ppgl',
-      component: () => import('@/views/pms/ppgl/index'),
-      meta: {title: '品牌管理', icon: 'product-list'}
     },
       {
         path: 'addProduct',
@@ -147,7 +142,20 @@ export const constantRouterMap = [
         component: () => import('@/views/pms/brand/update'),
         meta: {title: '编辑品牌'},
         hidden: true
-      }
+      },
+      {
+        path: 'ppgl',
+        name: 'ppgl',
+        component: () => import('@/views/pms/ppgl/index'),
+        meta: {title: '品牌管理', icon: 'product-list'}
+      },
+      {
+        path: 'updatePpgl',
+        name: 'updatePpgl',
+        component: () => import('@/views/pms/ppgl/updatePpgl'),
+        meta: {title: '编辑'},
+        hidden: true
+      },
     ]
   },
   {
