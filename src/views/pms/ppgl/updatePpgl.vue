@@ -1,11 +1,13 @@
 <template>
-    <h1>ppgl</h1>
+  <pp-detail :is-edit='true'></pp-detail>
 </template>
 
 <script>
-    export default {
-        name: "updatePpgl"
-    }
+  import PpDetail from './components/PpDetail'
+  export default {
+    name: "updatePpgl",
+    components: { PpDetail }
+  }
 </script>
 
 <style scoped>
